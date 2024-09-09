@@ -10,7 +10,7 @@ const swaggerDefinition = {
   },
   servers: [
     {
-      url: "http://localhost:8080",
+      url: "http://3.227.173.202",  // Substitua pelo IP ou domínio público do seu EC2
       description: "API banco de dados"
     }
   ],
