@@ -11,7 +11,7 @@ const pool = new Pool({
     database: "postgres",
     password: "mortadela1",
     ssl: {
-        rejectUnauthorized: false // Pode ser necessário dependendo da configuração
+        rejectUnauthorized: false 
     }
 });
 
@@ -32,11 +32,15 @@ app.use(express.json());
 swaggerSetup(app);
 
 app.use(cors({
-    origin: ['*', '*'],
-    methods: ['GET', 'POST'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true
+    origin: '*',  
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],  
+    allowedHeaders: ['Content-Type', 'Authorization'],  
+    credentials: true,
+    preflightContinue: true,  
+    optionsSuccessStatus: 204  
 }));
+
+app.options('*', cors());
 
 
 function validarUsuario(usuario) {
