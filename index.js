@@ -1,16 +1,29 @@
 import express from "express";
-import swaggerUi from 'swagger-ui-express';
 import swaggerSetup from './swagger.js';
 import pkg from 'pg';
 const { Pool } = pkg;
 
 const pool = new Pool({
     user: "postgres",
-    host: "localhost",
+    host: "database-1.c5rsn9sep4i2.us-east-1.rds.amazonaws.com",
     port: 5432,
     database: "postgres",
     password: "mortadela1",
+    ssl: {
+        rejectUnauthorized: false // Pode ser necessário dependendo da configuração
+    }
 });
+
+export default pool;
+
+pool.connect((err, client, release) => {
+    if (err) {
+        return console.error('Erro ao conectar ao banco de dados:', err.stack);
+    }
+    console.log('Conexão bem-sucedida');
+    release();
+});
+
 
 const app = express();
 app.use(express.json());
@@ -20,7 +33,6 @@ swaggerSetup(app);
 function validarUsuario(usuario) {
     const { cpf, nome, data_nascimento } = usuario;
 
-    // Validar CPF como inteiro, nome como string e data no formato yyyy-mm-dd
     if (
         Number.isInteger(cpf) &&
         typeof nome === 'string' &&
