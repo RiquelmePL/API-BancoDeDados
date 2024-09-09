@@ -32,9 +32,10 @@ app.use(express.json());
 swaggerSetup(app);
 
 app.use(cors({
-    origin: 'http://3.227.173.202:8080/',
+    origin: 'http://0.0.0.0:8080/',
     methods: ['GET', 'POST'],
-    allowedHeaders: ['Content-Type']
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true
 }));
 
 
@@ -97,4 +98,4 @@ app.post("/usuarios", (req, res) => {
     });
 });
 
-app.listen(8080, () => { console.log("Server listening on port 8080") });
+app.listen(80, () => { console.log("Server listening on port 8080") });
