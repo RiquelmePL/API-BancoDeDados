@@ -8,7 +8,7 @@ const pool = new Pool({
     host: "database-1.c5rsn9sep4i2.us-east-1.rds.amazonaws.com",
     port: 5432,
     database: "postgres",
-    password: "mortadela1",
+    password: "APIsenha",
     ssl: {
         rejectUnauthorized: false 
     }
