@@ -30,6 +30,13 @@ app.use(express.json());
 
 swaggerSetup(app);
 
+app.use(cors({
+    origin: 'http://3.227.173.202:8080/',
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['Content-Type']
+}));
+
+
 function validarUsuario(usuario) {
     const { cpf, nome, data_nascimento } = usuario;
 
