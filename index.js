@@ -1,6 +1,5 @@
 import express from "express";
 import swaggerSetup from './swagger.js';
-import cors from 'cors';
 import pkg from 'pg';
 const { Pool } = pkg;
 
@@ -30,18 +29,6 @@ const app = express();
 app.use(express.json());
 
 swaggerSetup(app);
-
-/*app.use(cors({
-    origin: '*',  
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],  
-    allowedHeaders: ['Content-Type', 'Authorization'],  
-    credentials: true,
-    preflightContinue: true,  
-    optionsSuccessStatus: 204  
-}));
-
-app.options('*', cors());*/
-
 
 function validarUsuario(usuario) {
     const { cpf, nome, data_nascimento } = usuario;

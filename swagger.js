@@ -10,14 +10,14 @@ const swaggerDefinition = {
   },
   servers: [
     {
-      url: "http://3.227.173.202",  // Substitua pelo IP ou domínio público do seu EC2
+      url: "http://3.227.173.202", 
       description: "API banco de dados"
     }
   ],
   paths: {
     "/usuarios": {
       get: {
-        summary: "Listar todos os usuários",
+        summary: "Lista todos os usuários",
         responses: {
           "200": {
             description: "Sucesso!",
