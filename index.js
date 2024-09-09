@@ -31,7 +31,7 @@ app.use(express.json());
 
 swaggerSetup(app);
 
-app.use(cors({
+/*app.use(cors({
     origin: '*',  
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],  
     allowedHeaders: ['Content-Type', 'Authorization'],  
@@ -40,7 +40,7 @@ app.use(cors({
     optionsSuccessStatus: 204  
 }));
 
-app.options('*', cors());
+app.options('*', cors());*/
 
 
 function validarUsuario(usuario) {
