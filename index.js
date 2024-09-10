@@ -54,7 +54,7 @@ app.get("/usuarios", (req, res) => {
 });
 
 app.get("/usuarios/cpf", (req, res) => {
-    const { cpf } = req.query; 
+    const { cpf } = req.body; 
 
     if (Number.isInteger(parseInt(cpf)) == false) {
         return res.status(400).json({ error: "CPF inválido" });
@@ -74,7 +74,7 @@ app.get("/usuarios/cpf", (req, res) => {
 });
 
 app.post("/usuarios", (req, res) => {
-    const body = req.body;
+    const body = req.query;
 
     if (!validarUsuario(body)) {
         return res.status(400).json({ error: "Formato de usuário inválido" });
